@@ -1,0 +1,218 @@
+programa {
+    
+    inclua biblioteca Util --> u
+    
+	funcao inicio() {
+	   
+		//INICCIO DA APOSTA
+		inteiro num_do_jogo 
+		inteiro quantidade_da_aposta
+		
+		escreva("-------- Bem Vindo a Loterica --------\n")
+		escreva("|	[1]      MEGA SENA           |  \n")
+		escreva("|	[2]      QUINA               |\n")
+		escreva("|	[3]      LOTOMANIA           |\n")
+		escreva("|	[4]      LOTOFÁCIL           |\n")
+		escreva("--------------------------------------\n")
+		escreva("Digite o número da aposta que quer jogar:\n ")
+		leia(num_do_jogo)
+		escreva("Quantas vezes quer jogar a mesma aposta ?\n ")
+		leia(quantidade_da_aposta)
+
+
+
+		inteiro num_de_dezenas
+		inteiro N_aleatorios[50]
+		
+
+		//MEGASENA
+		escolha(num_do_jogo){
+		    
+		    caso 1: 
+		
+    		escreva(" Quer apostar em quantas dezenas? OBS - as dezenas vão de (6 a 15 dezenas).\n ")
+    		leia(num_de_dezenas)
+    		
+    		enquanto(num_de_dezenas < 6 ou num_de_dezenas > 15){
+    		    escreva("Na MEGA SENA, podem ser apostados de 6 a 15 dezenas, tente novamente:\n ")
+    		    leia(num_de_dezenas)
+    		}
+    		
+    		limpa()
+    		
+    		para(inteiro c = 0; c< quantidade_da_aposta; c++){
+                num_aleatorio_gerado(N_aleatorios, num_de_dezenas, 1, 60)
+        		ordena_me_ao_ma(N_aleatorios, num_de_dezenas)
+        		para(inteiro i = 0; i< num_de_dezenas; i++){
+        		    escreva(N_aleatorios[i], " ")
+    	    	}
+    	    	escreva("\n\n")
+    		}
+    		
+    		real Dzvalor[16]
+		    
+		    Dzvalor[6]  = 4.50
+		    Dzvalor[7]  = 31.50
+		    Dzvalor[8]  = 126.00
+		    Dzvalor[9]  = 378.00
+		    Dzvalor[10] = 945.00
+		    Dzvalor[11] = 2.079
+		    Dzvalor[12] = 4.158
+		    Dzvalor[13] = 7.722
+		    Dzvalor[14] = 13513.50
+		    Dzvalor[15] = 22520.50
+    		    
+    		total(Dzvalor, num_de_dezenas, quantidade_da_aposta)
+    		
+    		pare
+    		
+
+    		//QUINA
+    		caso 2:
+		
+    		escreva("Quer apostar em quantas dezenas? OBS - as dezenas vão de (5 a 15 dezenas).\n ")
+    		leia(num_de_dezenas)
+    		
+    		enquanto(num_de_dezenas < 5 ou num_de_dezenas > 15){
+    		    escreva("Na QUINA, podem ser apostados de 5 a 15 dezenas, tente novamente:\n ")
+    		    leia(num_de_dezenas)
+    		}
+    		
+    		limpa()
+    		
+    		para(inteiro c = 0; c< quantidade_da_aposta; c++){
+                num_aleatorio_gerado(N_aleatorios, num_de_dezenas, 1, 80)
+        		ordena_me_ao_ma(N_aleatorios, num_de_dezenas)
+        		para(inteiro i = 0; i< num_de_dezenas; i++){
+        		    escreva(N_aleatorios[i], " ")
+    	    	}
+    	    	escreva("\n\n")
+    		}
+    		
+    		real Qndezena[16]
+		    
+		    Qndezena[5]  = 2.00
+		    Qndezena[6]  = 12.00
+		    Qndezena[7]  = 42.00
+		    Qndezena[8]  = 112.00
+		    Qndezena[9]  = 252.00
+		    Qndezena[10] = 504.00
+		    Qndezena[11] = 924.00
+		    Qndezena[12] = 1584.00
+		    Qndezena[13] = 2574.00
+		    Qndezena[14] = 4004.00
+		    Qndezena[15] = 6006.00
+    		    
+    		total(Qndezena, num_de_dezenas, quantidade_da_aposta)
+    		
+    		pare
+    		
+
+    		//lOTOMANIA
+    		caso 3: 
+		
+    		escreva("Na lotomania o número fixo de dezenas é 50.\n ")
+    		num_de_dezenas = 50
+    		
+    		limpa()
+    		
+    		para(inteiro c = 0; c< quantidade_da_aposta; c++){
+                num_aleatorio_gerado(N_aleatorios, num_de_dezenas, 1, 100)
+        		ordena_me_ao_ma(N_aleatorios, num_de_dezenas)
+        		para(inteiro i = 0; i< num_de_dezenas; i++){
+        		    escreva(N_aleatorios[i], " ")
+    	    	}
+    	    	escreva("\n\n")
+    		}
+    		
+    		real LotoM = 2.50
+		   
+    	    escreva(" O total da sua aposta foi R$ ", LotoM * quantidade_da_aposta,"\n ")
+    		
+    		pare
+    		
+					//LOTOFÁCIL
+    		caso 4:
+		
+    		escreva("Quer apostar em quantas dezenas? OBS - as dezenas vão de (15 a 20 dezenas).\n ")
+    		leia(num_de_dezenas)
+    		
+    		enquanto(num_de_dezenas < 15 ou num_de_dezenas > 20){
+    		    escreva("Na LOTOFÁCIL, podem ser apostados de 15 a 20 dezenas, tente novamente:\n ")
+    		    leia(num_de_dezenas)
+    		}
+    		
+    		limpa()
+    		
+    		para(inteiro c = 0; c< quantidade_da_aposta; c++){
+                num_aleatorio_gerado(N_aleatorios, num_de_dezenas, 1, 25)
+        		ordena_me_ao_ma(N_aleatorios, num_de_dezenas)
+        		para(inteiro i = 0; i< num_de_dezenas; i++){
+        		    escreva(N_aleatorios[i], " ")
+    	    	}
+    	    	escreva("\n\n")
+    		}
+    		
+    		real Lfvalor[21]
+		    
+		    Lfvalor[15]  = 2.50
+		    Lfvalor[16]  = 40.00
+		    Lfvalor[17]  = 2040.00
+		    Lfvalor[18]  = 2040.00
+		    Lfvalor[19]  = 9690.00
+		    Lfvalor[20]  = 38760.00
+    		    
+    		total(Lfvalor, num_de_dezenas, quantidade_da_aposta)
+    		
+    		pare
+	
+		}
+	}
+	
+//funções para sorteio do num
+
+	funcao num_aleatorio_gerado(inteiro vetor[], inteiro num_de_dezenas, inteiro v_inicial, inteiro v_finale){
+	    para(inteiro i = 0; i< num_de_dezenas; i++){
+		    
+		    inteiro numero_g =  u.sorteia(v_inicial, v_finale)
+		    
+		    se(nrn(vetor, numero_g, i)){
+		        i--
+		    }
+		    senao{
+		        vetor[i] = numero_g
+		    }
+		}
+	    
+	}
+	//
+	funcao logico nrn(inteiro N_aleatorios[], inteiro numero_g, inteiro quantidade_g){
+	    
+	    para(inteiro j = 0; j< quantidade_g; j++){
+		        se(N_aleatorios[j] == numero_g){
+		            retorne verdadeiro
+		        }
+		    }
+		retorne falso
+	}
+	// soma  das apostas do jogo escolhido
+	funcao total(real Dzvalor[], inteiro num_de_dezenas, inteiro quantidade_da_aposta){
+	    escreva("Você gastou o total de R$", Dzvalor[num_de_dezenas]* quantidade_da_aposta, " reais.\n ")
+	}
+	//do menor num ao maior
+	funcao ordena_me_ao_ma (inteiro inicio_num[], inteiro finaldonum){
+		para (inteiro i = 0; i < finaldonum; i++){
+			para (inteiro j = 0; j < finaldonum-1; j++){
+				se (inicio_num [j] > inicio_num[j+1]){
+					TRc (inicio_num, j, j+1)
+				}
+			}
+		}
+	}
+	//num =, faz a troca deles
+	funcao TRc (inteiro v[], inteiro a, inteiro b){
+		inteiro c = v[a]
+		
+		v[a] = v[b]
+		v[b] = c
+	}}
